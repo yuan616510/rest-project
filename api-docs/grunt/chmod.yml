@@ -1,0 +1,5 @@
+bin:
+  options:
+    mode: a+x
+  src:
+    - dist/server/bin/mocks

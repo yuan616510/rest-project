@@ -1,0 +1,66 @@
+{
+   "pageNumber":1,
+   "pageSize":10,
+   "numberOfPages":1,
+   "totalNumberOfElements":2,
+   "page":[
+      {
+         "guid":"43f173ae-a17c-456e-8ccb-c69e1d61c438",
+         "name":"example model 1",
+         "description":"example model with tech stocks",
+         "cashHoldingPercentage":10,
+         "driftPercentage":5,
+         "createdOn":"2017-03-01",
+         "modelType":"TAXABLE",
+         "rebalanceFrequency":"QUARTERLY",
+         "advisorId":"e0fe83a1-7512-432f-ba66-d2ae677272c1",
+         "assetAllocations":[
+            {
+               "symbol":"AAPL",
+               "percentage":30
+            },
+            {
+               "symbol":"GOOG",
+               "percentage":20
+            },
+            {
+               "symbol":"IBM",
+               "percentage":15
+            },
+            {
+               "symbol":"FB",
+               "percentage":25
+            }
+         ]
+      },
+      {
+         "guid":"d4fa6c54-8f79-475d-9acf-282fd3b32a5e",
+         "name":"example model 2",
+         "description":"example model with misc stocks",
+         "cashHoldingPercentage":5,
+         "driftPercentage":2,
+         "createdOn":"2017-03-02",
+         "modelType":"TAXABLE",
+         "rebalanceFrequency":"ANNUAL",
+         "advisorId":"549a368e-1671-4d84-8463-af2bc32f1dea",
+         "assetAllocations":[
+            {
+               "symbol":"COKE",
+               "percentage":15
+            },
+            {
+               "symbol":"PEP",
+               "percentage":15
+            },
+            {
+               "symbol":"CMG",
+               "percentage":30
+            },
+            {
+               "symbol":"MCD",
+               "percentage":35
+            }
+         ]
+      }
+   ]
+}

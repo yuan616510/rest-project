@@ -1,0 +1,3 @@
+all:
+  files:
+    - dist/index.html: api/index.raml

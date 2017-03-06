@@ -1,0 +1,7 @@
+server:
+  files:
+    - src: '**/*.js'
+      cwd: server/
+      expand: true
+      dest: dist/server/
+    - dist/server/bin/mocks: ./server/bin/mocks

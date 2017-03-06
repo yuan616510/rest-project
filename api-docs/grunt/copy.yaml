@@ -1,0 +1,11 @@
+dist:
+  files:
+    - expand: true
+      src:
+        - api/**
+      dest: dist/
+    - dist/package.json: ./package.json
+    - expand: true
+      src:
+        - server/**/*.template
+      dest: dist/

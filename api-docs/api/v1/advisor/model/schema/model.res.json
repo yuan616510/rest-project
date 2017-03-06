@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "urn:jsonschema:com:trizic:advisor:domain:entities:Model",
+  "additionalProperties": false,
+  "properties": {
+  	"guid": {
+      "description": "guid for model",
+      "type": "string"
+    },
+    "name": {
+      "description": "Unique Name for the model",
+      "type": "string"
+    },
+    "description": {
+      "description": "Description of the model",
+      "type": "string"
+    },
+    "cashHoldingPercentage": {
+      "description": "Percentage of cash to hold in the model",
+      "type": "integer"
+    },
+    "driftPercentage": {
+      "description": "Percentage of drift from target allocation of assets",
+      "type": "integer"
+    },
+    "createdOn": {
+      "description": "Date model created",
+      "type": "string",
+      "format": "DATE_TIME"
+    },
+    "modelType": {
+      "description": "Type of model",
+      "type": "string",
+      "enum": [
+        "QUALIFIED",
+        "TAXABLE"
+      ]
+    },
+    "rebalanceFrequency": {
+      "description": "Frequency to rebalance model",
+      "type": "string",
+      "enum": [
+        "MONTHLY",
+        "QUARTERLY",
+        "SEMI_ANNUAL",
+        "ANNUAL"
+      ]
+    },
+    "advisorId": {
+      "description": "Advisor who manages the model, guid",
+      "type": "String"
+    },
+    "assetAllocations": {
+      "description": "Asset Allocations",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/assetAllocation"
+      }
+    }
+  },
+  "definitions": {
+    "assetAllocation": {
+      "type": "object",
+      "properties": {
+        "symbol": {
+          "description": "The asset symbol",
+          "type": "string"
+        },
+        "percentage": {
+          "description": "The percentage of the model to allocate for the symbol",
+          "type": "number"
+        }
+      },
+      "required": [
+        "symbol",
+        "percentage"
+      ]
+    }
+  },
+  "required": [
+    "guid",
+    "name",
+    "description",
+    "advisorId",
+    "assetAllocations",
+    "rebalanceFrequency",
+    "modelType",
+    "driftPercentage",
+    "cashHoldingPercentage"
+  ]
+}

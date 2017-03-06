@@ -1,0 +1,5 @@
+all:
+  files:
+    src:
+      - schema/**/*.json
+      - example/**/*.json

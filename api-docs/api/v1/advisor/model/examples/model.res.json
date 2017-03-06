@@ -1,0 +1,29 @@
+{
+   "guid":"43f173ae-a17c-456e-8ccb-c69e1d61c438",
+   "name":"example model 1",
+   "description":"example model with tech stocks",
+   "cashHoldingPercentage":10,
+   "driftPercentage":5,
+   "createdOn":"2017-03-01",
+   "modelType":"TAXABLE",
+   "rebalanceFrequency":"QUARTERLY",
+   "advisorId":"e0fe83a1-7512-432f-ba66-d2ae677272c1",
+   "assetAllocations":[
+      {
+         "symbol":"AAPL",
+         "percentage":30
+      },
+      {
+         "symbol":"GOOG",
+         "percentage":20
+      },
+      {
+         "symbol":"IBM",
+         "percentage":15
+      },
+      {
+         "symbol":"FB",
+         "percentage":25
+      }
+   ]
+}

@@ -1,0 +1,9 @@
+mocks:
+  script: server/bin/mocks
+  options:
+    watch:
+      - server/
+      - api/
+      - schema/
+    ext: js,json
+    exec: ./node_modules/.bin/babel-node

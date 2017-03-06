@@ -1,0 +1,13 @@
+options:
+  livereload: true
+
+raml:
+  files:
+    - api/**/*.raml
+  tasks: raml2html
+
+schema:
+  files:
+    - schema/**/*.json
+    - api/**/schema/*.json
+  tasks: copy:dist

@@ -1,0 +1,26 @@
+#%RAML 0.8
+
+post:
+  description: |
+    ###  Create Model
+    Creates a new portfolio model for an advisor
+  body:
+    application/json:
+      example: !include examples/model.req.json
+      schema: !include schema/model.req.json
+  responses:
+    200:
+      body:
+        application/json:
+          example: !include examples/model.res.json
+          schema: !include schema/model.res.json
+get:
+  description: |
+    ###  Get models for an advisor
+    Get all portfolio models for an advisor
+  responses:
+    200:
+      body:
+        application/json:
+          example: !include examples/models.res.json
+          schema: !include schema/models.res.json

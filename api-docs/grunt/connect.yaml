@@ -1,0 +1,6 @@
+server:
+  options:
+    port: "<%= ports.docs %>"
+    base: ./dist/
+    livereload: true
+    open: true

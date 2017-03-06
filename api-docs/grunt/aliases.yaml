@@ -1,0 +1,16 @@
+build:
+  - eslint
+  - jsonlint
+  - clean:dist
+  - raml2html
+
+dist:
+  - build
+  - copy:dist
+  - babel:server
+  - chmod:bin
+
+dev:
+  - build            # build the RAML
+  - connect          # serve up the html docs
+  - concurrent:serve # run both watchers
