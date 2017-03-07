@@ -1,6 +1,6 @@
 #%RAML 0.8
 
-post:
+put:
   description: |
     ###  Create Model
     Creates a new portfolio model for an advisor
@@ -14,13 +14,41 @@ post:
         application/json:
           example: !include examples/model.res.json
           schema: !include schema/model.res.json
+    400:
+      body:
+        application/json:
+          example: |
+            {"errorCode": "allocation.percentage.total.invalid"}
+    404:
+      body:
+        application/json:
+          example: |
+            {"errorCode": "advisor.not.found"}
 get:
   description: |
     ###  Get models for an advisor
     Get all portfolio models for an advisor
+  queryParameters:
+    pageNumber:
+      displayName: pageNumber
+      type: integer
+      description: The page number to return, default is first page number 0
+      example: 1
+      required: false
+    pageSize:
+      displayName: pageSize
+      type: integer
+      description: The number of models to return at a time, default 10
+      example: 15
+      required: false
   responses:
     200:
       body:
         application/json:
           example: !include examples/models.res.json
           schema: !include schema/models.res.json
+    404:
+      body:
+        application/json:
+          example: |
+            {"errorCode": "advisor.not.found"}
