@@ -5,6 +5,7 @@
 ## Prerequisites
 
 - [Node Version Manager (nvm)](https://github.com/creationix/nvm)
+- Node Version 5.12
 
 ## Installation
 
