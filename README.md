@@ -1,3 +1,96 @@
+# Report by Yuan 
+### Overall
+
+This project applied Spring annotation-based configuration, even there is no web.xml.
+
+Implemented PUT call that is idempotent based on model name. Implemented validation of request body, including cases of "fields required", "Enum type", nested object's "required" (allocation's symbol), "percentage total" and "advisor not found".<br />
+
+Implemented GET call that surports pagination. <br />
+
+Implemented integration test using Spring Test. There are 10 test cases so for and each case was designed to test for expected response body, http status codes and error codes if invalid request. <br />
+
+Persist data in memory temporarily due to time limitation and deployment convenience.<br />
+
+
+### Environment:
+- JDK 1.8
+- Spring MVC 4.3
+- jackson 2.5
+- Hibernate Vlidation 5
+- Junit 
+- Spring Test(MockMVC)
+- Mockito
+
+### Run
+
+Maven 3.3.9 or above is needed. Change directory to pom file, then run below command in order to build war file.
+
+mvn clean install
+
+### Deployment
+
+I have deployed this project to Tomcat 8 in AWS through my personal account. The ending points are like below. Postman is a good app to test this api
+
+**GET**: get models for an advisor<br />
+http://sample-env.gfgtgdwbxs.us-west-2.elasticbeanstalk.com/v1/advisor/1/model
+
+**PUT**: create or update a model<br />
+With MediaType:"application/json" and request body<br />
+http://sample-env.gfgtgdwbxs.us-west-2.elasticbeanstalk.com/v1/advisor/1/model?pageSize=5&pageNumber=0
+
+### Requirements Satisfication
+
+**1. Get models for an advisor**<br />
+- retrieving correct elements    <br />
+- pagination                    <br />
+- default page number, page size        <br />
+- optional page number, page size       <br />
+- 200 status code                      <br />
+- 404 status code                      <br />
+- "errorCode":"advisor.not.found"    <br />
+
+**2. Put call**<br />
+- create a new model                    <br />
+- update an existing model              <br />
+- 200 status code                       <br />
+- retrieve back mode                    <br />
+- 404 status code                       <br />
+- "errorCode":"advisor.not.found"       <br />
+- 400 status code                       <br />
+- "errorCode":"allocation.percentage.total.invalid"   d<br />
+- validate request body, including       <br />
+ * name:                  required<br />
+ * description:           required<br />
+ * cashHoldingPercentage: required<br />
+ * driftPercentage:       required<br />
+ * modelType:             required,  Enum type:{"QUALIFIED","TAXABLE"}<br />
+ * rebalanceFrequency:    required,  Enum type:{"MONTHLY","QUARTERLY","SEMI_ANNUAL","ANNUAL"}<br />
+ * assetAllocations:	    required<br />
+- Validate nested object           <br />
+ * symbol:     required<br />
+ * percentage: required<br />
+
+**3. Test cases**<br />
+
+implemented 10 test cases, including<br />   
+
+------PUT CALL------ <br />
+- case 1: advisor not found<br />
+- case 2: allocation percentage total not 100<br />
+- case 3: required field missing, e.g.{name:null}<br />
+- case 4: invalid enum type, e.g.{modelType:dog}<br />
+- case 5: nested object's field missing, e.g.{assetAllocation:symbol}<br />
+- case 6: new model created successfully<br />
+- case 7: existing model updated successfully<br />
+
+------GET CALL------ <br />
+- case 8: advisor not found<br />
+- case 9: success in getting models without page number and size<br />
+- case 10: success in getting models with page number and size<br />
+
+**4. authentication/authorization**<br />
+not attempted
+
 # Create a REST API from a RAML spec
 
 Your task is to create a REST API the implements the end points available in the
@@ -44,3 +137,4 @@ Please include unit/integration tests.
 - Validate the request and response from your implementation match the RAML specification.
 - Add authentication/authorization so that a logged in advisor has access to only their
 own models.
+//
