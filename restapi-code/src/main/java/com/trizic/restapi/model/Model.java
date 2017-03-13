@@ -17,6 +17,7 @@ import com.trizic.restapi.validator.EnumString;
  * driftPercentage:       required
  * modelType:             required,  Enum type:{"QUALIFIED","TAXABLE"}
  * rebalanceFrequency:    required,  Enum type:{"MONTHLY","QUARTERLY","SEMI_ANNUAL","ANNUAL"}
+ * assetAllocations:	  required
  * 
  * @author Yuan
  *
